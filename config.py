@@ -32,8 +32,8 @@ ASSUSERNAME = getenv("ASSUSERNAME")
 # Premium (custom) emoji IDs for buttons - paste id here or set PE_<NAME> in .env
 # Empty = normal symbol is used.
 PREMIUM_EMOJI_IDS = {
-    "play": getenv("PE_PLAY", ""),
-    "pause": getenv("PE_PAUSE", ""),
+    "play": getenv("PE_PLAY", "6280376887046840141"),
+    "pause": getenv("PE_PAUSE", "6280582160713786149"),
     "resume": getenv("PE_RESUME", ""),
     "add_user": getenv("PE_ADD_USER", ""),
     "skip": getenv("PE_SKIP", ""),
