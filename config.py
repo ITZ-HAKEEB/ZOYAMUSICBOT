@@ -29,18 +29,6 @@ BOT_NAME = getenv("BOT_NAME", " ˹ᴋɪʀᴛɪ ꭙ мᴜsɪᴄ˼ ♪")
 ASSUSERNAME = getenv("ASSUSERNAME")
 
 # ======================================================
-# Premium (custom) emoji IDs for buttons - paste id here or set PE_<NAME> in .env
-# Empty = normal symbol is used.
-PREMIUM_EMOJI_IDS = {
-    "play": getenv("PE_PLAY", "6280376887046840141"),
-    "pause": getenv("PE_PAUSE", "6280582160713786149"),
-    "resume": getenv("PE_RESUME", ""),
-    "add_user": getenv("PE_ADD_USER", ""),
-    "skip": getenv("PE_SKIP", ""),
-    "stop": getenv("PE_STOP", ""),
-}
-
-# ======================================================
 MONGO_DB_URI = getenv("MONGO_DB_URI", None)
 LOGGER_ID = int(getenv("LOGGER_ID", -1003670001038))
 
@@ -66,7 +54,7 @@ HEROKU_APP_NAME = getenv("HEROKU_APP_NAME")
 HEROKU_API_KEY = getenv("HEROKU_API_KEY")
 
 # ======================================================
-UPSTREAM_REPO = getenv("UPSTREAM_REPO", "https://github.com/TEAM-KRITI/Sadhvimusic")
+UPSTREAM_REPO = getenv("UPSTREAM_REPO", "https://github.com/TEAM-KRITI/annumusic")
 UPSTREAM_BRANCH = getenv("UPSTREAM_BRANCH", "main")
 GIT_TOKEN = getenv("GIT_TOKEN", "0")
 
