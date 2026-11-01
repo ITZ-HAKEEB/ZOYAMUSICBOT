@@ -1,4 +1,5 @@
 import os
+import random
 import re
 import aiohttp
 import aiofiles
@@ -31,16 +32,32 @@ META_POS = (267, 608)
 TITLE_MAX_W = 740
 
 # ---- colours ---------------------------------------------------------------
-GLOW = (200, 190, 235)
 BAR_TRACK = (160, 158, 165, 235)
-BAR_FILL = (122, 112, 172, 255)
 TEXT_WHITE = (255, 255, 255)
-YELLOW = (255, 230, 50)
+
+# neon palette - a different one is picked every time a thumbnail is made
+NEON_COLORS = [
+    (57, 255, 20),     # neon green
+    (0, 240, 255),     # cyan
+    (255, 20, 147),    # hot pink
+    (255, 0, 255),     # magenta
+    (176, 38, 255),    # purple
+    (255, 95, 31),     # neon orange
+    (255, 240, 31),    # neon yellow
+    (30, 144, 255),    # electric blue
+    (255, 49, 49),     # neon red
+    (0, 255, 170),     # aqua green
+]
+_last_color = None
+
+
+def _pick_neon():
+    global _last_color
+    choices = [c for c in NEON_COLORS if c != _last_color] or NEON_COLORS
+    _last_color = random.choice(choices)
+    return _last_color
 
 # ---- text ------------------------------------------------------------------
-DEV_TEXT = "Dev :- @kirti_bots"
-OWNER_TEXT = "@System_xd_III"
-
 FALLBACK_THUMB = "https://o.uguu.se/snWhWXPT.jpg"
 
 _thumb_memory: dict = {}  # videoid -> output_path
@@ -84,45 +101,45 @@ def _rounded_mask(size, radius, scale=4):
     return m.resize((w, h), Image.LANCZOS)
 
 
-def _make_bg(song_img: Image.Image) -> Image.Image:
+def _make_bg(song_img: Image.Image, neon) -> Image.Image:
     bg = _cover(song_img.convert("RGB"), W, H).filter(ImageFilter.GaussianBlur(45))
-    bg = ImageEnhance.Brightness(bg).enhance(0.72)
+    bg = ImageEnhance.Brightness(bg).enhance(0.6)
     bg = ImageEnhance.Color(bg).enhance(0.8).convert("RGBA")
 
     # soft violet-grey tint + faint dark panel behind the card
-    bg = Image.alpha_composite(bg, Image.new("RGBA", (W, H), (70, 60, 100, 70)))
+    bg = Image.alpha_composite(bg, Image.new("RGBA", (W, H), (*neon, 85)))
     panel = Image.new("RGBA", (W, H), (0, 0, 0, 0))
-    ImageDraw.Draw(panel).rectangle(PANEL, fill=(20, 15, 30, 55))
+    ImageDraw.Draw(panel).rectangle(PANEL, fill=(10, 8, 16, 70))
     return Image.alpha_composite(bg, panel)
 
 
-def _draw_card(base: Image.Image) -> Image.Image:
+def _draw_card(base: Image.Image, neon) -> Image.Image:
     x1, y1, x2, y2 = CARD
     base = base.convert("RGBA")
 
     # soft glow around the card
     glow = Image.new("RGBA", (W, H), (0, 0, 0, 0))
     ImageDraw.Draw(glow).rounded_rectangle(
-        [x1 - 6, y1 - 6, x2 + 6, y2 + 6], radius=CARD_R + 6, fill=(*GLOW, 110)
+        [x1 - 6, y1 - 6, x2 + 6, y2 + 6], radius=CARD_R + 6, fill=(*neon, 190)
     )
     base = Image.alpha_composite(base, glow.filter(ImageFilter.GaussianBlur(22)))
 
     # frosted-glass body + light border
     glass = Image.new("RGBA", (W, H), (0, 0, 0, 0))
     gd = ImageDraw.Draw(glass)
-    gd.rounded_rectangle(CARD, radius=CARD_R, fill=(255, 255, 255, 62))
-    gd.rounded_rectangle(CARD, radius=CARD_R, outline=(255, 255, 255, 110), width=2)
+    gd.rounded_rectangle(CARD, radius=CARD_R, fill=(*neon, 50))
+    gd.rounded_rectangle(CARD, radius=CARD_R, outline=(*neon, 235), width=3)
     return Image.alpha_composite(base, glass).convert("RGB")
 
 
-def _paste_art(base: Image.Image, song_img: Image.Image) -> Image.Image:
+def _paste_art(base: Image.Image, song_img: Image.Image, neon) -> Image.Image:
     x1, y1, x2, y2 = ART
     w, h = x2 - x1, y2 - y1
     art = _cover(song_img.convert("RGB"), w, h)
 
     # soft inner glow under the art
     glow = Image.new("RGBA", (W, H), (0, 0, 0, 0))
-    ImageDraw.Draw(glow).rounded_rectangle(ART, radius=ART_R, fill=(*GLOW, 120))
+    ImageDraw.Draw(glow).rounded_rectangle(ART, radius=ART_R, fill=(*neon, 200))
     base = Image.alpha_composite(
         base.convert("RGBA"), glow.filter(ImageFilter.GaussianBlur(14))
     ).convert("RGB")
@@ -131,7 +148,7 @@ def _paste_art(base: Image.Image, song_img: Image.Image) -> Image.Image:
     return base
 
 
-def _draw_bar(base: Image.Image, progress: float = 0.06) -> Image.Image:
+def _draw_bar(base: Image.Image, neon, progress: float = 0.06) -> Image.Image:
     """Vertical progress bar (fills from the bottom)."""
     layer = Image.new("RGBA", (W, H), (0, 0, 0, 0))
     d = ImageDraw.Draw(layer)
@@ -139,7 +156,7 @@ def _draw_bar(base: Image.Image, progress: float = 0.06) -> Image.Image:
     d.rounded_rectangle([BAR_X, BAR_Y1, BAR_X + BAR_W, BAR_Y2], radius=r, fill=BAR_TRACK)
     fill_h = max(BAR_W, int((BAR_Y2 - BAR_Y1) * progress))
     d.rounded_rectangle(
-        [BAR_X, BAR_Y2 - fill_h, BAR_X + BAR_W, BAR_Y2], radius=r, fill=BAR_FILL
+        [BAR_X, BAR_Y2 - fill_h, BAR_X + BAR_W, BAR_Y2], radius=r, fill=(*neon, 255)
     )
     return Image.alpha_composite(base.convert("RGBA"), layer).convert("RGB")
 
@@ -182,17 +199,16 @@ async def get_thumb(videoid: str, user_name: str = None) -> str:
         song_img = Image.new("RGB", (777, 458), (28, 10, 5))
 
     # 3) compose
-    base = _make_bg(song_img).convert("RGB")
-    base = _draw_card(base)
-    base = _paste_art(base, song_img)
-    base = _draw_bar(base)
+    neon = _pick_neon()
+    base = _make_bg(song_img, neon).convert("RGB")
+    base = _draw_card(base, neon)
+    base = _paste_art(base, song_img, neon)
+    base = _draw_bar(base, neon)
     draw = ImageDraw.Draw(base)
 
     f_title = _font(FONT_TITLE, 34)
     f_meta = _font(FONT_META, 26)
     f_time = _font(FONT_META, 28)
-    f_dev = _font(FONT_BOLD, 23)
-    f_own = _font(FONT_BOLD, 24)
 
     # time labels around the vertical bar (total on top, elapsed at bottom)
     cx = BAR_X + BAR_W // 2
@@ -206,10 +222,6 @@ async def get_thumb(videoid: str, user_name: str = None) -> str:
 
     meta = _truncate(draw, f"{channel} | {vc} views", f_meta, TITLE_MAX_W)
     draw.text(META_POS, meta, font=f_meta, fill=TEXT_WHITE, anchor="lm")
-
-    # watermarks
-    draw.text((1255, 47), DEV_TEXT, font=f_dev, fill=YELLOW, anchor="rm")
-    draw.text((25, 691), OWNER_TEXT, font=f_own, fill=YELLOW, anchor="lm")
 
     base.save(output, "PNG", optimize=True)
 
