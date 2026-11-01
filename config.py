@@ -29,6 +29,18 @@ BOT_NAME = getenv("BOT_NAME", " ˹ᴋɪʀᴛɪ ꭙ мᴜsɪᴄ˼ ♪")
 ASSUSERNAME = getenv("ASSUSERNAME")
 
 # ======================================================
+# Premium (custom) emoji IDs for buttons - paste id here or set PE_<NAME> in .env
+# Empty = normal symbol is used.
+PREMIUM_EMOJI_IDS = {
+    "play": getenv("PE_PLAY", ""),
+    "pause": getenv("PE_PAUSE", ""),
+    "resume": getenv("PE_RESUME", ""),
+    "add_user": getenv("PE_ADD_USER", ""),
+    "skip": getenv("PE_SKIP", ""),
+    "stop": getenv("PE_STOP", ""),
+}
+
+# ======================================================
 MONGO_DB_URI = getenv("MONGO_DB_URI", None)
 LOGGER_ID = int(getenv("LOGGER_ID", -1003670001038))
 
