@@ -65,7 +65,7 @@ def _control_rows(chat_id, style):
         InlineKeyboardButton(text="▷", callback_data=f"ADMIN Resume|{chat_id}", style=style),
         InlineKeyboardButton(text="II", callback_data=f"ADMIN Pause|{chat_id}", style=style),
         _btn(
-            text="➡️",
+            text=" ",
             url=f"https://t.me/{app.username}?startgroup=true",
             style=style,
             icon_custom_emoji_id="5832251986635920010",
