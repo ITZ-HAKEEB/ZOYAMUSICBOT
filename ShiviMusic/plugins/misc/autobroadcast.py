@@ -1,6 +1,6 @@
 # ===========================================================
 # Auto Broadcast - message + photo fixed in this file
-# Koi command se set karne ki zarurat nahi. Neeche AB_TEXT / AB_PHOTO
+# Koi command se set karne ki zarurat nahi. Neeche _text() / AB_PHOTO
 # badal do, bas. Bot start hone ke baad apne aap chalta rahega.
 #
 # Extra commands (sudo only):
@@ -34,21 +34,19 @@ AB_MIN_GAP_MIN = AB_INTERVAL_MIN  # itne minute ke andar dobara auto-broadcast n
 # Photo ka link (ya file_id). Photo nahi chahiye to "" kar do.
 AB_PHOTO = config.START_IMG_URL
 
-# "BUY TG ACCOUNT FROM HERE" button ka link - yahan apna link daalo
-AB_BUY_URL = f"https://t.me/{config.OWNER_USERNAME}"
+# Message - poora BOLD (HTML). Bot ka naam link ke saath + @username automatically aayega.
+def _text() -> str:
+    uname = app.username
+    return (
+        f"<b>⊙ ᴛʜɪs ɪs <a href='https://t.me/{uname}'>{config.BOT_NAME}</a> [ ɴᴏ ᴀᴅs ]</b>\n\n"
+        "<b>➻ ᴀ ғᴀsᴛ &amp; ᴘᴏᴡᴇʀғᴜʟ ᴛᴇʟᴇɢʀᴀᴍ ᴍᴜsɪᴄ ᴘʟᴀʏᴇʀ ʙᴏᴛ 🎧</b>\n\n"
+        "<b>▸ ғᴀsᴛ • ʟᴀɢ ғʀᴇᴇ • ɴᴏ ᴀᴅs 🍃</b>\n"
+        "<b>▸ ᴘʟᴀʏʟɪsᴛ, ᴀᴜᴅɪᴏ, ᴠɪᴅᴇᴏ ᴘʟᴀʏ 🎥</b>\n\n"
+        "<b>➻ ɪғ ʏᴏᴜ ᴡᴀɴɴᴀ ᴇxᴘʟᴏʀᴇ ᴍᴇ, ᴛʜᴇɴ ʏᴏᴜ ᴄᴀɴ /start ✨</b>\n\n"
+        f"<b>➻ ᴜsᴇʀɴᴀᴍᴇ : @{uname}</b>"
+    )
 
-# Message - poora BOLD (HTML: <b>bold</b>, <blockquote>, <blockquote expandable>)
-AB_TEXT = (
-    "<blockquote><b>🎧 ʜᴇʏ ᴛʜᴇʀᴇ 👋</b></blockquote>\n"
-    "<blockquote expandable><b>"
-    f"✨ ᴅɪᴅ ʏᴏᴜ ᴋɴᴏᴡ? {config.BOT_NAME}...\n"
-    "ᴅᴇʟɪᴠᴇʀs ᴄʀʏsᴛᴀʟ-ᴄʟᴇᴀʀ, ʜɪ-ʀᴇs ᴍᴜsɪᴄ sᴛʀᴇᴀᴍɪɴɢ ᴡɪᴛʜ ᴢᴇʀᴏ ᴅᴇʟᴀʏ, "
-    "ʀɪɢʜᴛ ɪɴsɪᴅᴇ ʏᴏᴜʀ ᴛᴇʟᴇɢʀᴀᴍ ɢʀᴏᴜᴘs & ᴄʜᴀɴɴᴇʟs 🎵\n\n"
-    "ғʀᴏᴍ 24/7 ɴᴏɴ-sᴛᴏᴘ sᴛʀᴇᴀᴍɪɴɢ ᴛᴏ ᴀ ʙᴜᴛᴛᴇʀ-sᴍᴏᴏᴛʜ ǫᴜᴇᴜᴇ sʏsᴛᴇᴍ, "
-    "ᴇᴠᴇʀʏᴛʜɪɴɢ ɪs ʙᴜɪʟᴛ ᴛᴏ ᴋᴇᴇᴘ ʏᴏᴜʀ ᴠɪʙᴇ ᴀʟɪᴠᴇ ᴡɪᴛʜᴏᴜᴛ ᴀɴʏ ʟᴀɢ 🔥\n\n"
-    "▸ ᴀᴅᴅ ᴍᴇ ᴛᴏ ʏᴏᴜʀ ɢʀᴏᴜᴘ ᴀɴᴅ ʟᴇᴛ ᴛʜᴇ ᴍᴜsɪᴄ ɴᴇᴠᴇʀ sᴛᴏᴘ 🚀"
-    "</b></blockquote>"
-)
+
 # ---------------------------------------------------------------
 
 abdb = mongodb.autobroadcast
@@ -89,7 +87,6 @@ def _buttons():
                     url=f"https://t.me/{app.username}?startgroup=true",
                 )
             ],
-            [InlineKeyboardButton("🛒 ʙᴜʏ ᴛɢ ᴀᴄᴄᴏᴜɴᴛ ғʀᴏᴍ ʜᴇʀᴇ", url=AB_BUY_URL)],
         ]
     )
 
@@ -99,14 +96,14 @@ async def _send(chat_id: int):
         await app.send_photo(
             chat_id,
             AB_PHOTO,
-            caption=AB_TEXT,
+            caption=_text(),
             parse_mode=ParseMode.HTML,
             reply_markup=_buttons(),
         )
     else:
         await app.send_message(
             chat_id,
-            AB_TEXT,
+            _text(),
             parse_mode=ParseMode.HTML,
             disable_web_page_preview=True,
             reply_markup=_buttons(),
