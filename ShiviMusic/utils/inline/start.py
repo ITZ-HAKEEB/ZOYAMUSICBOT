@@ -24,13 +24,6 @@ def start_panel(_):
                 url=f"https://t.me/{app.username}?startgroup=true",
                 style=enums.ButtonStyle.PRIMARY,
             ),
-        ],
-        [
-            InlineKeyboardButton(
-                text=_["S_B_6"],
-                url=config.SUPPORT_CHANNEL,
-                style=enums.ButtonStyle.SUCCESS,
-            ),
             InlineKeyboardButton(
                 text=_["S_B_2"],
                 url=config.SUPPORT_CHAT,
@@ -58,9 +51,9 @@ def private_panel(_):
         ],
         [
             InlineKeyboardButton(
-                text="˹ ᴜᴘᴅᴀᴛᴇs ˼",
-                url=config.SUPPORT_CHANNEL,
-                style=enums.ButtonStyle.SUCCESS,
+                text="˹ ❍ᴡηєʀ ˼",
+                user_id=config.OWNER_ID,
+                style=enums.ButtonStyle.DANGER,
             ),
             InlineKeyboardButton(
                 text="˹ sυᴘᴘσʀᴛ ˼",
@@ -73,12 +66,7 @@ def private_panel(_):
                 text="˹ ʜєʟᴘ ᴧηᴅ ᴄσϻϻᴧηᴅs ˼",
                 callback_data="settings_back_helper",
                 style=enums.ButtonStyle.PRIMARY,
-            ),
-            InlineKeyboardButton(
-                text="˹ ❍ᴡηєʀ ˼",
-                user_id=config.OWNER_ID,
-                style=enums.ButtonStyle.DANGER,
-            ),
+            )
         ],
     ]
 
