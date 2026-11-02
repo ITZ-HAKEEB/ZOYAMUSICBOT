@@ -1,3 +1,4 @@
+import inspect
 import math
 import random
 from pyrogram import enums
@@ -5,6 +6,23 @@ from pyrogram.enums import ButtonStyle
 from pyrogram.types import InlineKeyboardButton
 from ShiviMusic.utils.formatters import time_to_seconds
 from ShiviMusic import app
+
+_SUPPORTS_ICON = "icon_custom_emoji_id" in inspect.signature(
+    InlineKeyboardButton.__init__
+).parameters
+
+
+def _btn(text: str, icon_custom_emoji_id: str = None, **kwargs) -> InlineKeyboardButton:
+    """Create an InlineKeyboardButton with custom emoji ID support when available."""
+    if icon_custom_emoji_id and _SUPPORTS_ICON:
+        return InlineKeyboardButton(text=text, icon_custom_emoji_id=str(icon_custom_emoji_id), **kwargs)
+    btn = InlineKeyboardButton(text=text, **kwargs)
+    if icon_custom_emoji_id:
+        try:
+            setattr(btn, "icon_custom_emoji_id", str(icon_custom_emoji_id))
+        except Exception:
+            pass
+    return btn
 
 STYLES = [
     enums.ButtonStyle.PRIMARY,
@@ -46,10 +64,11 @@ def _control_rows(chat_id, style):
     return [
         InlineKeyboardButton(text="▷", callback_data=f"ADMIN Resume|{chat_id}", style=style),
         InlineKeyboardButton(text="II", callback_data=f"ADMIN Pause|{chat_id}", style=style),
-        InlineKeyboardButton(
-            text="➕",
+        _btn(
+            text="➡️",
             url=f"https://t.me/{app.username}?startgroup=true",
             style=style,
+            icon_custom_emoji_id="5832251986635920010",
         ),
         InlineKeyboardButton(text="‣‣I", callback_data=f"ADMIN Skip|{chat_id}", style=style),
         InlineKeyboardButton(text="▢", callback_data=f"ADMIN Stop|{chat_id}", style=style),
