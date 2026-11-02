@@ -34,16 +34,22 @@ AB_MIN_GAP_MIN = AB_INTERVAL_MIN  # itne minute ke andar dobara auto-broadcast n
 # Photo ka link (ya file_id). Photo nahi chahiye to "" kar do.
 AB_PHOTO = config.START_IMG_URL
 
-# Message - poora BOLD (HTML). Bot ka naam link ke saath + @username automatically aayega.
+# Message - poora BOLD (HTML). Bot ka @username (link ke saath) automatically aayega.
 def _text() -> str:
     uname = app.username
     return (
-        f"<b>⊙ ᴛʜɪs ɪs <a href='https://t.me/{uname}'>{config.BOT_NAME}</a> [ ɴᴏ ᴀᴅs ]</b>\n\n"
+        f"<b>⊙ ᴛʜɪs ɪs <a href='https://t.me/{uname}'>@{uname}</a></b>\n\n"
         "<b>➻ ᴀ ғᴀsᴛ &amp; ᴘᴏᴡᴇʀғᴜʟ ᴛᴇʟᴇɢʀᴀᴍ ᴍᴜsɪᴄ ᴘʟᴀʏᴇʀ ʙᴏᴛ 🎧</b>\n\n"
-        "<b>▸ ғᴀsᴛ • ʟᴀɢ ғʀᴇᴇ • ɴᴏ ᴀᴅs 🍃</b>\n"
-        "<b>▸ ᴘʟᴀʏʟɪsᴛ, ᴀᴜᴅɪᴏ, ᴠɪᴅᴇᴏ ᴘʟᴀʏ 🎥</b>\n\n"
-        "<b>➻ ɪғ ʏᴏᴜ ᴡᴀɴɴᴀ ᴇxᴘʟᴏʀᴇ ᴍᴇ, ᴛʜᴇɴ ʏᴏᴜ ᴄᴀɴ /start ✨</b>\n\n"
-        f"<b>➻ ᴜsᴇʀɴᴀᴍᴇ : @{uname}</b>"
+        "<blockquote><b>"
+        "▸ ғᴀsᴛ • ʟᴀɢ ғʀᴇᴇ • ɴᴏ ᴀᴅs 🍃\n"
+        "▸ ᴘʟᴀʏʟɪsᴛ, ᴀᴜᴅɪᴏ, ᴠɪᴅᴇᴏ ᴘʟᴀʏ 🎥\n"
+        "▸ ᴄʀʏsᴛᴀʟ-ᴄʟᴇᴀʀ ʜɪ-ʀᴇs ᴍᴜsɪᴄ ᴡɪᴛʜ ᴢᴇʀᴏ ᴅᴇʟᴀʏ 🎵\n"
+        "▸ ᴀᴜᴛᴏ-ᴘʟᴀʏ, ʟᴏᴏᴘ, sʜᴜғғʟᴇ, sᴇᴇᴋ ᴀɴᴅ sᴘᴇᴇᴅ ᴄᴏɴᴛʀᴏʟ 🎛\n"
+        "▸ ᴡᴏʀᴋs ɪɴ ɢʀᴏᴜᴘs ᴀɴᴅ ᴄʜᴀɴɴᴇʟs (ᴠᴄ) 🔥\n"
+        "▸ ᴍᴀɢɪᴄᴀʟ ɴᴏᴡ-ᴘʟᴀʏɪɴɢ ᴛʜᴜᴍʙɴᴀɪʟs ✨"
+        "</b></blockquote>\n\n"
+        "<b>➻ ᴀᴅᴅ ᴍᴇ ᴛᴏ ʏᴏᴜʀ ɢʀᴏᴜᴘ ᴀɴᴅ ʟᴇᴛ ᴛʜᴇ ᴍᴜsɪᴄ ɴᴇᴠᴇʀ sᴛᴏᴘ 🚀</b>\n"
+        "<b>➻ ɪғ ʏᴏᴜ ᴡᴀɴɴᴀ ᴇxᴘʟᴏʀᴇ ᴍᴇ, ᴛʜᴇɴ ʏᴏᴜ ᴄᴀɴ /start ✨</b>"
     )
 
 
