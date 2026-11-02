@@ -38,7 +38,7 @@ AB_PHOTO = config.START_IMG_URL
 def _text() -> str:
     uname = app.username
     return (
-        f"<b>⊙ ᴛʜɪs ɪs <a href='https://t.me/{uname}'>@{uname}</a></b>\n\n"
+        f"<b>⊙ ᴛʜɪs ɪs <a href='https://t.me/{username}'>@{name}</a></b>\n\n"
         "<b>➻ ᴀ ғᴀsᴛ &amp; ᴘᴏᴡᴇʀғᴜʟ ᴛᴇʟᴇɢʀᴀᴍ ᴍᴜsɪᴄ ᴘʟᴀʏᴇʀ ʙᴏᴛ 🎧</b>\n\n"
         "<blockquote><b>"
         "▸ ғᴀsᴛ • ʟᴀɢ ғʀᴇᴇ • ɴᴏ ᴀᴅs 🍃\n"
