@@ -4,6 +4,7 @@
 # This source code is under MIT License 📜
 # ===========================================================
 
+from pyrogram import enums
 from pyrogram.types import InlineKeyboardButton
 
 import config
@@ -21,10 +22,19 @@ def start_panel(_):
             InlineKeyboardButton(
                 text=_["S_B_1"],
                 url=f"https://t.me/{app.username}?startgroup=true",
+                style=enums.ButtonStyle.PRIMARY,
+            ),
+        ],
+        [
+            InlineKeyboardButton(
+                text=_["S_B_6"],
+                url=config.SUPPORT_CHANNEL,
+                style=enums.ButtonStyle.SUCCESS,
             ),
             InlineKeyboardButton(
                 text=_["S_B_2"],
                 url=config.SUPPORT_CHAT,
+                style=enums.ButtonStyle.SUCCESS,
             ),
         ],
     ]
@@ -43,23 +53,32 @@ def private_panel(_):
             InlineKeyboardButton(
                 text="✙ ʌᴅᴅ ϻє ɪη ʏσυʀ ɢʀσυᴘ ✙",
                 url=f"https://t.me/{app.username}?startgroup=true",
+                style=enums.ButtonStyle.PRIMARY,
             )
         ],
         [
             InlineKeyboardButton(
-                text="˹ ❍ᴡηєʀ ˼",
-                user_id=config.OWNER_ID,
+                text="˹ ᴜᴘᴅᴀᴛᴇs ˼",
+                url=config.SUPPORT_CHANNEL,
+                style=enums.ButtonStyle.SUCCESS,
             ),
             InlineKeyboardButton(
                 text="˹ sυᴘᴘσʀᴛ ˼",
                 url=config.SUPPORT_CHAT,
+                style=enums.ButtonStyle.SUCCESS,
             ),
         ],
         [
             InlineKeyboardButton(
                 text="˹ ʜєʟᴘ ᴧηᴅ ᴄσϻϻᴧηᴅs ˼",
                 callback_data="settings_back_helper",
-            )
+                style=enums.ButtonStyle.PRIMARY,
+            ),
+            InlineKeyboardButton(
+                text="˹ ❍ᴡηєʀ ˼",
+                user_id=config.OWNER_ID,
+                style=enums.ButtonStyle.DANGER,
+            ),
         ],
     ]
 

@@ -12,7 +12,7 @@ import time
 import random
 import asyncio
 
-from pyrogram import filters
+from pyrogram import enums, filters
 from pyrogram.enums import ChatType
 from pyrogram.types import (
     ChatJoinRequest,
@@ -163,10 +163,12 @@ async def start_pm(client, message: Message, _):
                         InlineKeyboardButton(
                             text=_["S_B_8"],
                             url=link,
+                            style=enums.ButtonStyle.PRIMARY,
                         ),
                         InlineKeyboardButton(
                             text=_["S_B_9"],
                             url=config.SUPPORT_CHAT,
+                            style=enums.ButtonStyle.SUCCESS,
                         ),
                     ],
                 ]
@@ -275,16 +277,19 @@ async def join_request_welcome(
                     InlineKeyboardButton(
                         text=_["S_B_14"],
                         callback_data="abot_cb",
+                        style=enums.ButtonStyle.PRIMARY,
                     )
                 ],
                 [
                     InlineKeyboardButton(
                         text=_["S_B_6"],
                         url=config.SUPPORT_CHANNEL,
+                        style=enums.ButtonStyle.SUCCESS,
                     ),
                     InlineKeyboardButton(
                         text=_["S_B_9"],
                         url=config.SUPPORT_CHAT,
+                        style=enums.ButtonStyle.SUCCESS,
                     ),
                 ],
             ]
