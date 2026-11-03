@@ -173,8 +173,8 @@ queue_6 : "<b>🕚 ᴅυʀᴧᴛɪση :</b> υηᴋησᴡη ᴅυʀᴧᴛɪσ�
 queue_7 : "\n**❖ ᴄʟɪᴄᴋ ση ʙυᴛᴛση ʙєʟσᴡ ᴛσ ɢєᴛ ᴡʜσʟє ǫυєυєᴅ ʟɪsᴛ.**"
 queue_8 : "❖ <b>{0} ᴘʟᴧʏєʀ</b>\n\n🎄 <b>sᴛʀєᴧϻɪηɢ :</b> {1}\n\n🔗 <b>sᴛʀєᴧϻ ᴛʏᴘє :</b> {2}\n🥀 <b>ʀєǫυєsᴛєᴅ ʙʏ :</b> {3}\n{4}"
 
-stream_1 : "<blockquote><b><emoji id=\"5172834782823842584\">🎶</emoji> Sᴏᴜɴᴅ Ɛɴɢᴀɢᴇᴅ ┊ {2}  ◤</b></blockquote>\n<blockquote><b><emoji id=\"6172537761552142514\">🎶</emoji>  𝖳ɪᴛʟᴇ : <a href=\"{0}\">{1}</a>\n<emoji id=\"6172537761552142514\">🎶</emoji> 𝖯ʟᴀʏᴇᴅ 𝖡ʏ : {3}</b></blockquote>"
-stream_2 : "<blockquote><b><emoji id=\"5172834782823842584\">🎶</emoji> Sᴏᴜɴᴅ Ɛɴɢᴀɢᴇᴅ  ◤</b></blockquote>\n<blockquote><b><emoji id=\"6172537761552142514\">🎶</emoji> 𝖯ʟᴀʏᴇᴅ 𝖡ʏ : {0}</b></blockquote>"
+stream_1 : "<blockquote><b><emoji id=\"6285328687986387521\">🎶</emoji> Sᴏᴜɴᴅ Ɛɴɢᴀɢᴇᴅ ┊ {2}  ◤</b></blockquote>\n<blockquote><b><emoji id=\"5294339927318739359\">🎶</emoji>  𝖳ɪᴛʟᴇ : <a href=\"{0}\">{1}</a>\n<emoji id=\"5264919878082509254\">🎶</emoji> 𝖯ʟᴀʏᴇᴅ 𝖡ʏ : {3}</b></blockquote>"
+stream_2 : "<blockquote><b><emoji id=\"6285328687986387521\">🎶</emoji> Sᴏᴜɴᴅ Ɛɴɢᴀɢᴇᴅ  ◤</b></blockquote>\n<blockquote><b><emoji id=\"6280572003116130562\">🎶</emoji> 𝖯ʟᴀʏᴇᴅ 𝖡ʏ : {0}</b></blockquote>"
 
 
 CLOSE_BUTTON  : "• ᴄʟᴏsє •"
