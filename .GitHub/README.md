@@ -3,7 +3,7 @@
 </p>
 
 <h2 align="center">
-    ───「ᴋɪʀᴛɪ  ᴍᴜsɪᴄ 」───
+    ───「ɴᴏʙɪ  ᴍᴜsɪᴄ 」───
 </h2>
 
 <p align="center">
@@ -25,7 +25,7 @@
 </p>
 
 <p align="center">
-  <a href="https://dashboard.heroku.com/new?template=https://github.com/TEAM-KRITI/annumusic">
+  <a href="https://dashboard.heroku.com/new?template=https://github.com/ITZ-HAKEEB/ZOYAMUSICBOT">
     <img src="https://img.shields.io/badge/Deploy%20On%20Heroku-8A2BE2?style=for-the-badge&logo=heroku" width="230" height="40"/>
   </a>
 </p>
@@ -55,7 +55,7 @@
    ```
  6. **📥 ᴄʟᴏɴᴇ ᴛʜᴇ ʀᴇᴘᴏsɪᴛᴏʀʏ**
    ```bash
-   git clone https://github.com/Im-Notcoder/Shivi-V2 && cd Shivi-V2
+   git clone https://github.com/ITZ-HAKEEB/ZOYAMUSICBOT && cd ZOYAMUSICBOT
    ```
  7. **📂 ɪɴsᴛᴀʟʟ ʀᴇǫᴜɪʀᴇᴍᴇɴᴛs**
    ```bash
