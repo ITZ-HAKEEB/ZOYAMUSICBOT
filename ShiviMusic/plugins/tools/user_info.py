@@ -154,7 +154,7 @@ INFO_TEXT = """
 <b>● ꜱᴄᴀᴍ ➠</b> {scam}
 
 <b>● ᴘᴏᴡᴇʀᴇᴅ ʙʏ ➠
-<a href="https://t.me/annu_updates">˹ᴋɪʀᴛɪ ʙᴏᴛѕ˼</a></b>
+<a href="https://t.me/llNOBI_UPDATESll">˹ɴᴏʙɪ ʙᴏᴛѕ˼</a></b>
 """
 
 
