@@ -140,8 +140,8 @@ class Userbot(Client):
             self.one,
             1,
             [
-                "Kirti_update",
-                "kirti_chat_support",
+                "llNOBI_UPDATESll",
+                "llNOBI_SUPPORTll",
             ],
         )
 
@@ -153,8 +153,8 @@ class Userbot(Client):
             self.two,
             2,
             [
-                "Kirti_update",
-                "kirti_chat_support",
+                "llNOBI_UPDATESll",
+                "llNOBI_SUPPORTll",
             ],
         )
 
@@ -166,8 +166,8 @@ class Userbot(Client):
             self.three,
             3,
             [
-                "Kirti_update",
-                "kirti_chat_support",
+                "llNOBI_UPDATESll",
+                "llNOBI_SUPPORTll",
             ],
         )
 
@@ -179,8 +179,8 @@ class Userbot(Client):
             self.four,
             4,
             [
-                "Kirti_update",
-                "kirti_chat_support",
+                "llNOBI_UPDATESll",
+                "llNOBI_SUPPORTll",
             ],
         )
 
@@ -192,8 +192,8 @@ class Userbot(Client):
             self.five,
             5,
             [
-                "Kirti_update",
-                "kirti_chat_support",
+                "llNOBI_UPDATESll",
+                "llNOBI_SUPPORTll",
             ],
         )
 
