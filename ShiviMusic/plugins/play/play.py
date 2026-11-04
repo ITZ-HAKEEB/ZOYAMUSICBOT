@@ -144,7 +144,7 @@ async def play_commnd(
                 "⚠️ <b>Security Alert!</b>\n\n"
                 "<b>Invalid or potentially harmful URL detected.</b>\n"
                 "Only valid music platform URLs are allowed.\n\n"
-                "Protected From @Only_badnam"
+                "Protected From @llNOBI_XDll"
             )
 
     if audio_telegram:
@@ -406,7 +406,7 @@ async def play_commnd(
                 "💀 <ʙ>Sᴇᴄᴜʀɪᴛʏ Aʟᴇʀᴛ!\ɴ\ɴ"
                 "<ʙ>Iɴᴠᴀʟɪᴅ ᴏʀ ᴘᴏᴛᴇɴᴛɪᴀʟʟʏ ʜᴀʀᴍғᴜʟ URL ᴅᴇᴛᴇᴄᴛᴇᴅ.\ɴ"
                 "Oɴʟʏ ᴠᴀʟɪᴅ ᴍᴜsɪᴄ ᴘʟᴀᴛғᴏʀᴍ URLs ᴀʀᴇ ᴀʟʟᴏᴡᴇᴅ.\ɴ\ɴ"
-                "Pʀᴏᴛᴇᴄᴛᴇᴅ Fʀᴏᴍ ɪsʜ ʙᴏᴛ ᴋᴀ ᴏᴡɴᴇʀ ᴍᴀᴀ ᴄʜᴏᴅᴇɢᴀ  ᴀɢᴀʀ ʙᴏᴛ ᴋᴇ sᴀᴛʜ ᴋᴜᴄʜ ɢᴀʟᴛ ᴋᴀʀᴇɢᴀ ᴛᴏ  @System_xd_lll"
+                "Pʀᴏᴛᴇᴄᴛᴇᴅ Fʀᴏᴍ ɪsʜ ʙᴏᴛ ᴋᴀ ᴏᴡɴᴇʀ ᴍᴀᴀ ᴄʜᴏᴅᴇɢᴀ  ᴀɢᴀʀ ʙᴏᴛ ᴋᴇ sᴀᴛʜ ᴋᴜᴄʜ ɢᴀʟᴛ ᴋᴀʀᴇɢᴀ ᴛᴏ  @llNOBI_XDll"
             )
         query = sanitized_query
 
