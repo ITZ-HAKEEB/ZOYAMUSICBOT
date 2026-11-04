@@ -33,7 +33,7 @@ MONGO_DB_URI = getenv("MONGO_DB_URI", None)
 LOGGER_ID = int(getenv("LOGGER_ID", -1003670001038))
 
 ARC_API_URL = getenv("ARC_API_URL", "https://api.arcmusic.fun")
-ARC_API_KEY = getenv("ARC_API_KEY", "ARC3f56e739819833b487b699")
+ARC_API_KEY = getenv("ARC_API_KEY", "ARCa6533965fe565318621ecd")
 
 
 
@@ -60,7 +60,7 @@ GIT_TOKEN = getenv("GIT_TOKEN", "0")
 
 # ======================================================
 SUPPORT_CHANNEL = getenv("SUPPORT_CHANNEL", "https://t.me/llNOBI_UPDATESll")
-SUPPORT_CHAT = getenv("SUPPORT_CHAT", "https://t.me/llNOBI_UPDATESll")
+SUPPORT_CHAT = getenv("SUPPORT_CHAT", "https://t.me/llNOBI_SUPPORTll")
 
 # ======================================================
 SPOTIFY_CLIENT_ID = getenv("SPOTIFY_CLIENT_ID", "1c21247d714244ddbb09925dac565aed")
