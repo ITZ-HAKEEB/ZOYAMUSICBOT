@@ -16,11 +16,11 @@ from ShiviMusic import app
 async def privacy_command(client: Client, message: Message):
     await message.reply_photo(
           has_spoiler=True,
-        photo="https://d.uguu.se/LbHGyjwp.jpg",
-        caption="**➻ ᴡᴇʟᴄᴏᴍᴇ ᴛᴏ ᴋɪʀᴛɪ ʙᴏᴛѕ ᴘʀɪᴠᴀᴄʏ ᴘᴏʟɪᴄʏ.**\n\n**⊚ ᴄʟɪᴄᴋ ᴛʜᴇ ʙᴇʟᴏᴡ ʙᴜᴛᴛᴏɴ ᴛʜᴇɴ ꜱᴇᴇ ᴘʀɪᴠᴀᴄʏ ᴘᴏʟɪᴄʏ 🔏**",
+        photo="https://kommodo.ai/i/VBGCtCxoFhN6o0sdZAU8",
+        caption="**➻ ᴡᴇʟᴄᴏᴍᴇ ᴛᴏ ɴᴏʙɪ ʙᴏᴛѕ ᴘʀɪᴠᴀᴄʏ ᴘᴏʟɪᴄʏ.**\n\n**⊚ ᴄʟɪᴄᴋ ᴛʜᴇ ʙᴇʟᴏᴡ ʙᴜᴛᴛᴏɴ ᴛʜᴇɴ ꜱᴇᴇ ᴘʀɪᴠᴀᴄʏ ᴘᴏʟɪᴄʏ 🔏**",
         reply_markup=InlineKeyboardMarkup(
             [
-                [InlineKeyboardButton("˹ᴘʀᴏᴍᴏ˼", url="https://t.me/Only_badnam?text=𝖧ᴇʏ%20ʙᴀʙʏ%20%20😄%20ɪ%20ᴡᴀɴᴛ%20ᴘᴀɪᴅ%20ᴘʀᴏᴍᴏᴛɪᴏɴ,%20ɢɪᴠᴇ%20ᴍᴇ%20ᴘʀɪᴄᴇ%20ʟɪsᴛ%20😙")]
+                [InlineKeyboardButton("˹ᴘʀᴏᴍᴏ˼", url="https://t.me/llNOBI_XDll?text=𝖧ᴇʏ%20ʙᴀʙʏ%20%20😄%20ɪ%20ᴡᴀɴᴛ%20ᴘᴀɪᴅ%20ᴘʀᴏᴍᴏᴛɪᴏɴ,%20ɢɪᴠᴇ%20ᴍᴇ%20ᴘʀɪᴄᴇ%20ʟɪsᴛ%20😙")]
             ]
         )
     )
