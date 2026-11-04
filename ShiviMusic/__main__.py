@@ -33,7 +33,7 @@ async def send_startup_message():
         f"• <b>ᴘʟᴜɢɪɴꜱ :-</b> {len(ALL_MODULES)} ʟᴏᴀᴅєᴅ\n"
         f"• <b>ᴘʏʀᴏɢʀᴀᴍ :-</b> <code>{pyrogram.__version__}</code>\n"
         f"• <b>ᴘʏᴛʜᴏɴ :-</b> <code>{platform.python_version()}</code>\n\n"
-        f"» <b>ᴘᴏᴡєʀєᴅ ʙʏ :-</b> <a href='{config.SUPPORT_CHANNEL}'>ᴋɪʀᴛɪ-ʙᴏᴛꜱ</a>"
+        f"» <b>ᴘᴏᴡєʀєᴅ ʙʏ :-</b> <a href='{config.SUPPORT_CHANNEL}'>ɴᴏʙɪ-ʙᴏᴛꜱ</a>"
     )
     markup = InlineKeyboardMarkup(
         [
