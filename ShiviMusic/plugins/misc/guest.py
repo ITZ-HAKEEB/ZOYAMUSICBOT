@@ -34,7 +34,6 @@ ADD_ME_PROMO_TEXT = (
 # ==========================================================
 
 def _add_me_markup(username: str):
-
     return InlineKeyboardMarkup(
         [
             [
@@ -51,14 +50,10 @@ def _add_me_markup(username: str):
 # ɢᴜєꜱᴛ ᴍᴏᴅє
 # ==========================================================
 
-@app.on_guest_message()
+@app.on_message()
 async def guest_username_mention(_, message: Message):
 
-    guest_query_id = getattr(
-        message,
-        "guest_query_id",
-        None,
-    )
+    guest_query_id = getattr(message, "guest_query_id", None)
 
     if not guest_query_id:
         return
@@ -71,13 +66,11 @@ async def guest_username_mention(_, message: Message):
 
         me = await app.get_me()
 
-        # Full bot name
         name = me.first_name or "Music Bot"
 
         if me.last_name:
             name = f"{name} {me.last_name}"
 
-        # Bot username
         username = me.username
 
         if not username:
@@ -130,3 +123,8 @@ async def guest_username_mention(_, message: Message):
         print(
             f"Guest Mode Error: {type(e).__name__}: {e}"
         )
+
+
+# ==========================================================
+# © 2025-26 ALL RIGHTS RESERVED
+# ==========================================================
