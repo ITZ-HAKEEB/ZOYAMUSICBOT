@@ -12,13 +12,12 @@ from ShiviMusic import app
 
 
 # ============================================================
-# 🔘 ʙᴜᴛᴛᴏɴs
+# 🔘 BUTTONS
 # ============================================================
 
 async def get_buttons(client):
 
     me = await client.get_me()
-
     username = me.username
 
     if username:
@@ -43,7 +42,7 @@ async def get_buttons(client):
 
 
 # ============================================================
-# 🟢 ᴠᴄ sᴛᴀʀᴛᴇᴅ
+# 🟢 VC STARTED
 # ============================================================
 
 @app.on_message(filters.video_chat_started)
@@ -70,7 +69,7 @@ async def video_chat_started(client, message):
 
 
 # ============================================================
-# 🔴 ᴠᴄ ᴇɴᴅᴇᴅ
+# 🔴 VC ENDED
 # ============================================================
 
 @app.on_message(filters.video_chat_ended)
@@ -119,10 +118,21 @@ async def video_chat_ended(client, message):
 
 
 # ============================================================
-# 👥 ᴠᴄ ᴍᴇᴍʙᴇʀs ɪɴᴠɪᴛᴇᴅ
+# 👥 VC MEMBERS INVITED FILTER
 # ============================================================
 
-@app.on_message(filters.video_chat_members_invited)
+video_chat_members_invited_filter = filters.create(
+    lambda _, __, message: bool(
+        getattr(message, "video_chat_members_invited", None)
+    )
+)
+
+
+# ============================================================
+# 👥 VC MEMBERS INVITED
+# ============================================================
+
+@app.on_message(video_chat_members_invited_filter)
 async def video_chat_members_invited(client, message):
 
     try:
@@ -130,10 +140,16 @@ async def video_chat_members_invited(client, message):
         if not message.from_user:
             return
 
-        if not message.video_chat_members_invited:
+        invited_info = getattr(
+            message,
+            "video_chat_members_invited",
+            None
+        )
+
+        if not invited_info:
             return
 
-        users = message.video_chat_members_invited.users
+        users = invited_info.users
 
         if not users:
             return
@@ -174,7 +190,7 @@ async def video_chat_members_invited(client, message):
 
 
 # ============================================================
-# ❌ ᴄʟᴏsᴇ
+# ❌ CLOSE BUTTON
 # ============================================================
 
 @app.on_callback_query(
@@ -184,9 +200,7 @@ async def close_vc_message(client, query):
 
     try:
 
-        await query.answer(
-            "ᴄʟᴏsᴇᴅ ✨"
-        )
+        await query.answer("ᴄʟᴏsᴇᴅ ✨")
 
         await query.message.delete()
 
