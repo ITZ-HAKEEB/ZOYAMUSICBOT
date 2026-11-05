@@ -1,3 +1,4 @@
+from pyrogram import filters
 from pyrogram.enums import ParseMode
 from pyrogram.types import (
     InlineKeyboardButton,
@@ -47,10 +48,21 @@ def _add_me_markup(username: str):
 
 
 # ==========================================================
+# ɢᴜєꜱᴛ ǫᴜєʀʏ ꜰɪʟᴛєʀ
+# ==========================================================
+
+guest_query_filter = filters.create(
+    lambda _, __, message: bool(
+        getattr(message, "guest_query_id", None)
+    )
+)
+
+
+# ==========================================================
 # ɢᴜєꜱᴛ ᴍᴏᴅє
 # ==========================================================
 
-@app.on_message()
+@app.on_message(guest_query_filter)
 async def guest_username_mention(_, message: Message):
 
     guest_query_id = getattr(message, "guest_query_id", None)
@@ -97,7 +109,10 @@ async def guest_username_mention(_, message: Message):
 
         result = InlineQueryResultArticle(
             title="❖ ᴍᴜꜱɪᴄ ʙᴏᴛ ♪",
-            description=f"@{username} • ᴀᴅᴅ ᴍє ༭ ɪɴ ʏᴏᴜʀ ɢʀᴏᴜᴘ 🎶",
+            description=(
+                f"@{username} • "
+                "ᴀᴅᴅ ᴍє ༭ ɪɴ ʏᴏᴜʀ ɢʀᴏᴜᴘ 🎶"
+            ),
             thumb_url="https://files.catbox.moe/qv2ob4.jpg",
 
             input_message_content=InputTextMessageContent(
